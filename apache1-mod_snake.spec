@@ -4,7 +4,7 @@ Summary:	An Apache module to allow for Python plugins and control
 Summary(pl):	Modu³ do Apache pozwalaj±cy na kontrolê i wtyczki Pythona
 Name:		apache-mod_%{mod_name}
 Version:	0.5.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		Networking/Daemons
 Group(cs):	Sí»ové/Démoni

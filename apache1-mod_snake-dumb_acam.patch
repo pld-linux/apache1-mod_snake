@@ -1,0 +1,15 @@
+--- configure~	2004-09-19 20:52:44.673352840 +0200
++++ configure	2004-09-19 20:52:49.981545872 +0200
+@@ -1671,9 +1671,9 @@
+         { echo "configure: error: --with-apache and --with-apxs are mutually exclusive." 1>&2; exit 1; }
+     fi
+     # Adjust for relativity
+-    pdir=`echo $withval | sed -e 's/apxs//'`
+-    pdir=`cd $pdir && pwd`
+-    withval="$pdir/apxs"
++#   pdir=`echo $withval | sed -e 's/apxs//'`
++#   pdir=`cd $pdir && pwd`
++#   withval="$pdir/apxs"
+     if test -f $withval; then
+ 	APXS="$withval"
+ 	APACHE_INCLUDE="`$APXS -q INCLUDEDIR`"

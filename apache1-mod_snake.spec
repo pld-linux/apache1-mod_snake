@@ -32,7 +32,7 @@ procesu Apache skrypty CGI w Pythonie s± znacznie przyspieszone.
 Python mo¿e byæ umieszczany w HTMLu oraz modu³y Pythona mog±
 kontrolowaæ wewnêtrzne sprawy serwera www.
 
-%prep 
+%prep
 %setup -q -n mod_%{mod_name}-%{version}
 
 %build

@@ -8,7 +8,7 @@ License:	GPL
 Group:		Networking/Daemons
 Group(de):	Netzwerkwesen/Server
 Group(pl):	Sieciowe/Serwery
-Source0:	fhttp://prdownloads.sourceforge.net/mod_%{mod_name}/mod_%{mod_name}-%{version}.tar.gz
+Source0:	http://prdownloads.sourceforge.net/mod_%{mod_name}/mod_%{mod_name}-%{version}.tar.gz
 URL:		http://modsnake.sourceforge.net/
 BuildRequires:	/usr/sbin/apxs
 BuildRequires:	apache-devel >= 1.3.15

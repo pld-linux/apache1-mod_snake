@@ -30,7 +30,7 @@ internals of the webserver.
 mod_snake to modu³ Apache pozwalaj±cy na wykonywanie kodu Pythona
 bezpo¶rednio w procesie serwera Apache. W³±czaj±c interpreter do
 procesu Apache skrypty CGI w Pythonie s± znacznie przyspieszone.
-Python mo¿e byæ umieszczany w HTMLu oraz modu³y Pythona mog±
+Python mo¿e byæ umieszczany w HTML-u oraz modu³y Pythona mog±
 kontrolowaæ wewnêtrzne sprawy serwera www.
 
 %prep

@@ -1,4 +1,5 @@
 %define		mod_name	snake
+%define 	apxs		/usr/sbin/apxs
 Summary:	An Apache module to allow for Python plugins and control
 Summary(pl):	Modu³ do Apache pozwalaj±cy na kontrolê i wtyczki Pythona
 Name:		apache-mod_%{mod_name}
@@ -6,18 +7,30 @@ Version:	0.5.0
 Release:	1
 License:	GPL
 Group:		Networking/Daemons
+Group(cs):	Sí»ové/Démoni
+Group(da):	Netværks/Dæmoner
 Group(de):	Netzwerkwesen/Server
+Group(es):	Red/Servidores
+Group(fr):	Réseau/Serveurs
+Group(is):	Net/Púkar
+Group(it):	Rete/Demoni
+Group(no):	Nettverks/Daemoner
 Group(pl):	Sieciowe/Serwery
+Group(pt):	Rede/Servidores
+Group(ru):	óÅÔØ/äÅÍÏÎÙ
+Group(sl):	Omre¾ni/Stre¾niki
+Group(sv):	Nätverk/Demoner
+Group(uk):	íÅÒÅÖÁ/äÅÍÏÎÉ
 Source0:	http://prdownloads.sourceforge.net/mod_%{mod_name}/mod_%{mod_name}-%{version}.tar.gz
 URL:		http://modsnake.sourceforge.net/
-BuildRequires:	/usr/sbin/apxs
+BuildRequires:	%{apxs}
 BuildRequires:	apache-devel >= 1.3.15
 BuildRequires:	python-devel >= 1.5
-Prereq:		/usr/sbin/apxs
+Prereq:		%{_sbindir}/apxs
 Requires:	apache
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_pkglibdir	%(/usr/sbin/apxs -q LIBEXECDIR)
+%define		_pkglibdir	%(%{apxs} -q LIBEXECDIR)
 
 %description
 mod_snake is an Apache module which allows for execution of Python
@@ -38,7 +51,7 @@ kontrolowaæ wewnêtrzne sprawy serwera www.
 
 %build
 %configure2_13 \
-	--with-apxs=%{_sbindir}/apxs \
+	--with-apxs=%{apxs} \
 	--enable-dso
 %{__make}
 
@@ -52,14 +65,14 @@ install mod_%{mod_name}.so $RPM_BUILD_ROOT%{_pkglibdir}
 rm -rf $RPM_BUILD_ROOT
 
 %post
-/usr/sbin/apxs -e -a -n %{mod_name} %{_pkglibdir}/mod_%{mod_name}.so 1>&2
+%{_sbindir}/apxs -e -a -n %{mod_name} %{_pkglibdir}/mod_%{mod_name}.so 1>&2
 if [ -f /var/lock/subsys/httpd ]; then
 	/etc/rc.d/init.d/httpd restart 1>&2
 fi
 
 %preun
 if [ "$1" = "0" ]; then
-	/usr/sbin/apxs -e -A -n %{mod_name} %{_pkglibdir}/mod_%{mod_name}.so 1>&2
+	%{_sbindir}/apxs -e -A -n %{mod_name} %{_pkglibdir}/mod_%{mod_name}.so 1>&2
 	if [ -f /var/lock/subsys/httpd ]; then
 		/etc/rc.d/init.d/httpd restart 1>&2
 	fi

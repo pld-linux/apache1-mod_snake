@@ -7,12 +7,12 @@ Version:	0.5.0
 Release:	2
 License:	GPL
 Group:		Networking/Daemons
-Source0:	http://prdownloads.sourceforge.net/mod_%{mod_name}/mod_%{mod_name}-%{version}.tar.gz
+Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/mod%{mod_name}/mod_%{mod_name}-%{version}.tar.gz
 URL:		http://modsnake.sourceforge.net/
 BuildRequires:	%{apxs}
 BuildRequires:	apache-devel >= 1.3.15
 BuildRequires:	python-devel >= 1.5
-Prereq:		%{_sbindir}/apxs
+Requires(post,preun):	%{apxs}
 Requires:	apache
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

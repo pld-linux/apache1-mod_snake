@@ -8,6 +8,7 @@ Release:	2
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/mod%{mod_name}/mod_%{mod_name}-%{version}.tar.gz
+# Source0-md5:	7c043871a66a8579c6fec561c5d6cb84
 URL:		http://modsnake.sourceforge.net/
 BuildRequires:	%{apxs}
 BuildRequires:	apache-devel >= 1.3.15

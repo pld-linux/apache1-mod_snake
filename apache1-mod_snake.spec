@@ -7,7 +7,7 @@ Summary:	An Apache module to allow for Python plugins and control
 Summary(pl):	Modu³ do Apache pozwalaj±cy na kontrolê i wtyczki Pythona
 Name:		apache1-mod_%{mod_name}
 Version:	0.5.0
-Release:	1.1
+Release:	1.2
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/mod%{mod_name}/mod_%{mod_name}-%{version}.tar.gz
@@ -65,7 +65,7 @@ if [ -f /var/lock/subsys/apache ]; then
 	/etc/rc.d/init.d/apache restart 1>&2
 fi
 
-%preun
+%postun
 if [ "$1" = "0" ]; then
 	if [ -f /var/lock/subsys/apache ]; then
 		/etc/rc.d/init.d/apache restart 1>&2

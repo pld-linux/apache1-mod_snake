@@ -1,20 +1,22 @@
 %define		mod_name	snake
-%define 	apxs		/usr/sbin/apxs
+%define 	apxs		/usr/sbin/apxs1
 Summary:	An Apache module to allow for Python plugins and control
 Summary(pl):	Modu³ do Apache pozwalaj±cy na kontrolê i wtyczki Pythona
-Name:		apache-mod_%{mod_name}
+Name:		apache1-mod_%{mod_name}
 Version:	0.5.0
-Release:	2
+Release:	1
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/mod%{mod_name}/mod_%{mod_name}-%{version}.tar.gz
 # Source0-md5:	7c043871a66a8579c6fec561c5d6cb84
+Patch0:		%{name}-dumb_acam.patch
 URL:		http://modsnake.sourceforge.net/
 BuildRequires:	%{apxs}
-BuildRequires:	apache-devel >= 1.3.15
+BuildRequires:	apache1-devel >= 1.3.15
 BuildRequires:	python-devel >= 1.5
 Requires(post,preun):	%{apxs}
-Requires:	apache
+Requires:	apache1 >= 1.3.15
+Obsoletes:	apache-mod_%{mod_name} <= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_pkglibdir	%(%{apxs} -q LIBEXECDIR)
@@ -35,6 +37,7 @@ kontrolowaæ wewnêtrzne sprawy serwera www.
 
 %prep
 %setup -q -n mod_%{mod_name}-%{version}
+%patch0 -p0
 
 %build
 %configure2_13 \
@@ -53,15 +56,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %{apxs} -e -a -n %{mod_name} %{_pkglibdir}/mod_%{mod_name}.so 1>&2
-if [ -f /var/lock/subsys/httpd ]; then
-	/etc/rc.d/init.d/httpd restart 1>&2
+if [ -f /var/lock/subsys/apache ]; then
+	/etc/rc.d/init.d/apache restart 1>&2
 fi
 
 %preun
 if [ "$1" = "0" ]; then
 	%{apxs} -e -A -n %{mod_name} %{_pkglibdir}/mod_%{mod_name}.so 1>&2
-	if [ -f /var/lock/subsys/httpd ]; then
-		/etc/rc.d/init.d/httpd restart 1>&2
+	if [ -f /var/lock/subsys/apache ]; then
+		/etc/rc.d/init.d/apache restart 1>&2
 	fi
 fi
 

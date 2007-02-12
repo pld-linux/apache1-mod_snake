@@ -4,7 +4,7 @@
 %define		mod_name	snake
 %define 	apxs		/usr/sbin/apxs1
 Summary:	An Apache module to allow for Python plugins and control
-Summary(pl.UTF-8):   Moduł do Apache pozwalający na kontrolę i wtyczki Pythona
+Summary(pl.UTF-8):	Moduł do Apache pozwalający na kontrolę i wtyczki Pythona
 Name:		apache1-mod_%{mod_name}
 Version:	0.5.0
 Release:	1.2

@@ -4,7 +4,7 @@
 %define		mod_name	snake
 %define 	apxs		/usr/sbin/apxs1
 Summary:	An Apache module to allow for Python plugins and control
-Summary(pl):	Modu³ do Apache pozwalaj±cy na kontrolê i wtyczki Pythona
+Summary(pl.UTF-8):   ModuÅ‚ do Apache pozwalajÄ…cy na kontrolÄ™ i wtyczki Pythona
 Name:		apache1-mod_%{mod_name}
 Version:	0.5.0
 Release:	1.2
@@ -32,12 +32,12 @@ interpreter in the Apache process, Python CGIs are accelerated, Python
 can be embedded within HTML and Python written modules can control the
 internals of the webserver.
 
-%description -l pl
-mod_snake to modu³ Apache pozwalaj±cy na wykonywanie kodu Pythona
-bezpo¶rednio w procesie serwera Apache. W³±czaj±c interpreter do
-procesu Apache skrypty CGI w Pythonie s± znacznie przyspieszone.
-Python mo¿e byæ umieszczany w HTML-u oraz modu³y Pythona mog±
-kontrolowaæ wewnêtrzne sprawy serwera WWW.
+%description -l pl.UTF-8
+mod_snake to moduÅ‚ Apache pozwalajÄ…cy na wykonywanie kodu Pythona
+bezpoÅ›rednio w procesie serwera Apache. WÅ‚Ä…czajÄ…c interpreter do
+procesu Apache skrypty CGI w Pythonie sÄ… znacznie przyspieszone.
+Python moÅ¼e byÄ‡ umieszczany w HTML-u oraz moduÅ‚y Pythona mogÄ…
+kontrolowaÄ‡ wewnÄ™trzne sprawy serwera WWW.
 
 %prep
 %setup -q -n mod_%{mod_name}-%{version}

@@ -14,7 +14,7 @@ Source0:	http://dl.sourceforge.net/mod%{mod_name}/mod_%{mod_name}-%{version}.tar
 # Source0-md5:	7c043871a66a8579c6fec561c5d6cb84
 Patch0:		%{name}-dumb_acam.patch
 URL:		http://modsnake.sourceforge.net/
-BuildRequires:	%{apxs}
+BuildRequires:	apache1-apxs
 BuildRequires:	apache1-devel >= 1.3.33-2
 BuildRequires:	python-devel >= 1.5
 BuildRequires:	rpmbuild(macros) >= 1.268

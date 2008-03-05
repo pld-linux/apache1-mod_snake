@@ -7,7 +7,7 @@ Summary:	An Apache module to allow for Python plugins and control
 Summary(pl.UTF-8):	Moduł do Apache pozwalający na kontrolę i wtyczki Pythona
 Name:		apache1-mod_%{mod_name}
 Version:	0.5.0
-Release:	1.2
+Release:	1.3
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/mod%{mod_name}/mod_%{mod_name}-%{version}.tar.gz
@@ -17,7 +17,7 @@ URL:		http://modsnake.sourceforge.net/
 BuildRequires:	apache1-devel >= 1.3.39
 BuildRequires:	python-devel >= 1.5
 BuildRequires:	rpmbuild(macros) >= 1.268
-Requires:	apache1 >= 1.3.33-2
+Requires:	apache1(EAPI)
 Obsoletes:	apache-mod_snake <= 0.5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

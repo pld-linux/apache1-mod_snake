@@ -40,7 +40,7 @@ kontrolować wewnętrzne sprawy serwera WWW.
 
 %prep
 %setup -q -n mod_%{mod_name}-%{version}
-%patch0 -p0
+%patch -P0 -p0
 
 %build
 %configure2_13 \
